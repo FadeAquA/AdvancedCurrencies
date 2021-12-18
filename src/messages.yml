@@ -1,0 +1,42 @@
+###########################################################################################
+# HEX COLORS CAN BE USED, TPYES ARE LISTED BELOW                                          #
+# TYPES:                                                                                  #
+# <SOLID:(HEXCOLOR)> -> ONE COLOR FOR ENTIRE MSG                                          #
+# <GRADIENT:(HEXCOLOR)> TEXT </GRADIENT:(OTHER HEX COLOR)> -> FADING COLORS               #
+# <RAINBOW(NUMBER)> TEXT </RAINBOW> -> NUMBER CAN BE SPECIFIED FOR THE HUE OF THE RAINBOW #
+###########################################################################################
+
+messages:
+  PLAYER-OFFLINE: "&4(!) &n%player%&c is not online!"
+  NO-PERMISSION: "&4(!) &cYou do not have permission to execute this command!"
+  ADMIN-GIVE-CURRENCY: "&pYou added &s%amount% %currency% &pto &s%player%'s &pbalance!"
+  ADMIN-TAKE-CURRENCY: "&pYou took &s%amount% %currency% &pfrom &s%player%'s &pbalance!"
+  ADMIN-SET-CURRENCY: "&pYou have set &s%player%'s %currency% &pbalance to &s%amount%!"
+  GIVE-CURRENCY: "&a&l+ %symbol%%amount% %currency% &7(%reason%)"
+  TAKE-CURRENCY: "&c&l- %symbol%%amount% %currency% &7(%reason%)"
+  INVALID-CURRENCY: "&4(!) &cInvalid Currency!"
+  INVALID-POUCH-AMOUNT: "&4(!) &cNumbers have to be greater than 0 and max needs to be greater than min!"
+  INVALID-AMOUNT: "&4(!) &cAmount must be greater than 0"
+  INSUFFICIANT-CURRENCY: "&4(!) Player does not have enough &4%currency%"
+  ADMIN-GIVE-POUCH: "&pYou gave &s%player% %amount%x %currency% &pPouch with a value between &s%min% &pand &s%max%"
+  ADMIN-GIVE-NOTE: "&pYou gave &s%player% %amount%x %currency% &pNote with a value of &s%value%"
+  ITEM-HELP:
+    - "<GRADIENT:388e3cAdmin Item Commands</GRADIENT:6abf69>"
+    - "<SOLID:6abf69>/pouch give <player> <currency> <min> <max> <amount>"
+    - "<SOLID:6abf69>/note give <player> <currency> <value> <amount>"
+  BANK-HELP:
+    - "<GRADIENT:fdd835>Admin Bank Commands</GRADIENT:ffff6b>"
+    - "<SOLID:ffff6b>/bank give <player> <currency> <amount>"
+    - "<SOLID:ffff6b>/bank take <player> <currency> <amount>"
+    - "<SOLID:ffff6b>/bank set<player> <currency> <amount>"
+  PLAYER-BALANCE:
+    - "<GRADIENT:ffd600>&m------------------</GRADIENT:ffff6b>"
+    - "&f&lYour Balances"
+    - "<SOLID:ffd600>Withdraw your balances with &n/withdraw&r"
+    - "%balances%"
+  OTHER-PLAYER-BALANCE:
+    - "<GRADIENT:ffd600>&m------------------</GRADIENT:ffff6b>"
+    - "&f&l%player%'s Balances"
+    - "%balances%"
+  PLAYER-BALANCE-ELEMENT: "&7- &p%balance% &s%currency%" #Replaces the %balances% in PLAYER-BALANCE & OTHER-PLAYER-BALANCE
+

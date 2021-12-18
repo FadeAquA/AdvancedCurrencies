@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CurrencyPlus:jar">
+    <output-path>$PROJECT_DIR$/../Server/plugins</output-path>
+    <root id="archive" name="CurrencyPlus.jar">
+      <element id="module-output" name="CurrencyPlus" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/SimpAPI-4.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/PiggyAPI.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
