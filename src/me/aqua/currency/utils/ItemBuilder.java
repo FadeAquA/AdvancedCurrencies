@@ -124,7 +124,7 @@ public class ItemBuilder {
 
         if (meta instanceof SkullMeta) {
             itemStack = SkullCreator.itemWithBase64(itemStack, skullBase64);
-            itemStack = SkullCreator.itemWithBase64(itemStack, skullTexture);
+            itemStack = SkullCreator.itemWithUrl(itemStack, skullTexture);
         }
         return itemStack;
     }

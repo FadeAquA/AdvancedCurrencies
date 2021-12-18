@@ -20,6 +20,8 @@ messages:
   INSUFFICIANT-CURRENCY: "&4(!) Player does not have enough &4%currency%"
   ADMIN-GIVE-POUCH: "&pYou gave &s%player% %amount%x %currency% &pPouch with a value between &s%min% &pand &s%max%"
   ADMIN-GIVE-NOTE: "&pYou gave &s%player% %amount%x %currency% &pNote with a value of &s%value%"
+  PLAYER-COMMAND: "&4(!) &cThis command can only be executed by players!"
+  WITHDRAW-USAGE: "&4(USAGE) &c/withdraw <currency> <amount>"
   ITEM-HELP:
     - "<GRADIENT:388e3cAdmin Item Commands</GRADIENT:6abf69>"
     - "<SOLID:6abf69>/pouch give <player> <currency> <min> <max> <amount>"

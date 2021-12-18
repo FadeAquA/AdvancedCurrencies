@@ -37,63 +37,32 @@ public class CurrencyCommands implements CommandExecutor {
                 boolean decimal = Currency.getInstance().getConfig().getBoolean("Currencies." + currency + ".decimal");
                 CurrencyManager manager = new CurrencyManager();
                 if (target != null) {
-                    if (!decimal) {
-                        if (currencySection.getKeys(false).contains(currency)) {
-                            if (args[0].equalsIgnoreCase("give")) {
-                                if (intamount > 0) {
-                                    manager.addCurrency(target, currency, intamount, "Admin");
-                                    sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-GIVE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
-                                            .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
-                                } else {
-                                    sender.sendMessage(ColorAPI.process(messages.getString("INVALID-AMOUNT")));
-                                }
-                            }
-                            if (args[0].equalsIgnoreCase("take")) {
-                                if (manager.getCurrency(target, currency) > intamount) {
-                                    manager.removeCurrency(target, currency, intamount, "Admin");
-                                    sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-TAKE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
-                                            .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
-                                } else {
-                                    sender.sendMessage(ColorAPI.process(messages.getString("INSUFFICIANT-CURRENCY").replace("%currency%", WordUtils.capitalize(currency))));
-                                }
-                            }
-                            if (args[0].equalsIgnoreCase("set")) {
-                                manager.setCurrency(target, currency, intamount);
-                                sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-SET-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
+                    if (currencySection.getKeys(false).contains(currency)) {
+                        if (args[0].equalsIgnoreCase("give")) {
+                            if (intamount > 0) {
+                                manager.addCurrency(target, currency, intamount, "Admin");
+                                sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-GIVE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
                                         .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
+                            } else {
+                                sender.sendMessage(ColorAPI.process(messages.getString("INVALID-AMOUNT")));
                             }
-                        } else {
-                            sender.sendMessage(ColorAPI.process(messages.getString("INVALID-CURRENCY")));
+                        }
+                        if (args[0].equalsIgnoreCase("take")) {
+                            if (manager.getCurrency(target, currency) >= intamount) {
+                                manager.removeCurrency(target, currency, intamount, "Admin");
+                                sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-TAKE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
+                                        .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
+                            } else {
+                                sender.sendMessage(ColorAPI.process(messages.getString("INSUFFICIANT-CURRENCY").replace("%currency%", WordUtils.capitalize(currency))));
+                            }
+                        }
+                        if (args[0].equalsIgnoreCase("set")) {
+                            manager.setCurrency(target, currency, intamount);
+                            sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-SET-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(intamount) + "").replace("%player%", target.getName())
+                                    .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
                         }
                     } else {
-                        double doubleAmount = Double.parseDouble(args[3]);
-                        if (currencySection.getKeys(false).contains(currency)) {
-                            if (args[0].equalsIgnoreCase("give")) {
-                                if (doubleAmount > 0) {
-                                    manager.addCurrency(target, currency, (int) doubleAmount, "Admin");
-                                    sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-GIVE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(doubleAmount) + "").replace("%player%", target.getName())
-                                            .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
-                                } else {
-                                    sender.sendMessage(ColorAPI.process(messages.getString("INVALID-AMOUNT")));
-                                }
-                            }
-                            if (args[0].equalsIgnoreCase("take")) {
-                                if (manager.getCurrency(target, currency) > doubleAmount) {
-                                    manager.removeCurrency(target, currency, (int) doubleAmount, "Admin");
-                                    sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-TAKE-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(doubleAmount) + "").replace("%player%", target.getName())
-                                            .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
-                                } else {
-                                    sender.sendMessage(ColorAPI.process(messages.getString("INSUFFICIANT-CURRENCY").replace("%currency%", WordUtils.capitalize(currency))));
-                                }
-                            }
-                            if (args[0].equalsIgnoreCase("set")) {
-                                manager.setCurrency(target, currency, (int) doubleAmount);
-                                sender.sendMessage(ColorAPI.process(messages.getString("ADMIN-SET-CURRENCY").replace("%currency%", WordUtils.capitalize(currency)).replace("%amount%", df.format(doubleAmount) + "").replace("%player%", target.getName())
-                                        .replace("&p", manager.getCurrencyPrimaryColor(currency)).replace("&s", manager.getCurrencySecondaryColor(currency))));
-                            }
-                        } else {
-                            sender.sendMessage(ColorAPI.process(messages.getString("INVALID-CURRENCY")));
-                        }
+                        sender.sendMessage(ColorAPI.process(messages.getString("INVALID-CURRENCY")));
                     }
                 } else {
                     sender.sendMessage(ColorAPI.process(messages.getString("PLAYER-OFFLINE").replace("%player%", args[1])));

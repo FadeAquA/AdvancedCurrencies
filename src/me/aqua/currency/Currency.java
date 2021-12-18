@@ -1,9 +1,7 @@
 package me.aqua.currency;
 
-import me.aqua.currency.commands.BalanceCommand;
-import me.aqua.currency.commands.CurrencyCommands;
-import me.aqua.currency.commands.NoteCommands;
-import me.aqua.currency.commands.PouchCommands;
+import me.aqua.currency.commands.*;
+import me.aqua.currency.listeners.NoteListener;
 import me.aqua.currency.listeners.PouchListener;
 import me.aqua.currency.utils.Placeholders;
 import org.bukkit.Bukkit;
@@ -42,10 +40,12 @@ public class Currency extends JavaPlugin {
         getCommand("bank").setExecutor(new CurrencyCommands());
         getCommand("balance").setExecutor(new BalanceCommand());
         getCommand("note").setExecutor(new NoteCommands());
+        getCommand("withdraw").setExecutor(new WithdrawCommand());
     }
 
     public void registerEvents() {
         getServer().getPluginManager().registerEvents(new PouchListener(), this);
+        getServer().getPluginManager().registerEvents(new NoteListener(), this);
     }
 
     public static Currency getInstance() {

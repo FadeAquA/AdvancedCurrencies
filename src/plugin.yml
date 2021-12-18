@@ -1,5 +1,5 @@
 name: CurrencyPlus
-version: 1.0.0
+version: 1.0.1
 api-version: 1.16
 main: me.aqua.currency.Currency
 
@@ -11,4 +11,8 @@ commands:
 
   balance:
     aliases: [bal]
+
   note:
+
+  withdraw:
+

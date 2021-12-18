@@ -1,10 +1,9 @@
 Items:
   note:
-    material: PLAYER_HEAD
-    texture: "http://textures.minecraft.net/texture/a38248e5a1e4a150f399fab74c48bb257cabbe464f31a93ed112546a0edb953"
+    material: PAPER
     name: "&p&l%currency% &s&lNote &7[Right Click]"
     lore:
-      - "&f&oRight Click &7to redeem this note!"
+      - "&f&oRight Click &7to redeem this %currency% note!"
       - " "
       - "&sValue&p %value% %currency%"
       - "&sSigner&p %signer%"
@@ -12,8 +11,7 @@ Items:
     SERVER-SIGNER: "Server"
 
   pouch:
-    material: PLAYER_HEAD
-    texture: "http://textures.minecraft.net/texture/6cef9aa14e884773eac134a4ee8972063f466de678363cf7b1a21a85b7"
+    material: ENDER_CHEST
     name: "&p&l%currency% &s&lPouch &7[Right Click]"
     lore:
       - "&7Right click to receive %currency% with the"
@@ -28,21 +26,18 @@ Currencies:
   GEMS:
     primary: "<SOLID:b47cff>"
     secondary: "<SOLID:dc4dff>"
-    decimal: false
     join-amount: 10
     symbol: "◆"
   ###############################
   MONEY:
     primary: "<SOLID:9cff57>"
     secondary: "<SOLID:64dd17>"
-    decimal: true
     join-amount: 500
     symbol: "$"
   ###############################
   ORBS:
     primary: "<SOLID:ff7539>"
     secondary: "<SOLID:ff3d00>"
-    decimal: false
     join-amount: 5
     symbol: "☀"
   ###############################

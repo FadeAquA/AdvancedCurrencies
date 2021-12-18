@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class Formatter {
 
     private static final DecimalFormat df = new DecimalFormat("#.###");
-    private static final DecimalFormat pf = new DecimalFormat("#0.00");
+    private static final DecimalFormat pf = new DecimalFormat("#0.0");
     private static final char[] suffix = {' ', 'k', 'm', 'b', 't', 'q', 'Q', 's', 'S', 'O', 'N', 'D', 'U'};
 
     public static String formatter(Number number) {
