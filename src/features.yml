@@ -1,0 +1,30 @@
+##################################
+# MORE FEATURES CAN BE ADDED!!   #
+# SEND IDEAS TO AquA_iReapzZ#3466#
+##################################
+
+BLOCK-BREAK:
+  ENABLED: true
+  BLOCKS:
+    DIAMOND_ORE:
+      currency: "GEMS"
+      amount: 5
+      chance: 10
+
+
+BLOCK-PLACE:
+  ENABLED: true
+  BLOCKS:
+    DIAMOND_BLOCK:
+      currency: "MONEY"
+      amount: 1000
+      chacne: 50
+
+
+MOB-KILL:
+  ENABLED: true
+  MOBS:
+    ZOMBIE:
+      currency: "ORBS"
+      amount: 10
+      chance: 20

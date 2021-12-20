@@ -24,21 +24,23 @@ public class CurrencyManager {
     }
 
     public void addCurrency(OfflinePlayer player, String currency , int amount, String reason) {
-        String symbol = Currency.getInstance().getConfig().getString("Currencies." + currency + ".symbol");
+        String symbol = configManager.getConfig("config").getString("Currencies." + currency + ".symbol");
         data.set("data." + player.getUniqueId() + "." + currency, getCurrency(player, currency) + amount);
         if (player.isOnline()) {
             Player onlinePlayer = (Player) player;
-            onlinePlayer.sendMessage(ColorAPI.process(messages.getString("GIVE-CURRENCY").replace("%currency%", currency).replace("%symbol%", symbol).replace("%amount%", df.format(amount) + "").replace("%reason%", reason)));
+            configManager.getMessage("GIVE-CURRENCY").setPlaceholder("%symbol%", symbol).setPlaceholder("%currency%", currency).setPlaceholder("%value%", df.format(amount))
+                    .setPlaceholder("%reason%", reason).send(onlinePlayer);
         }
         configManager.saveConfig("data");
     }
 
     public void removeCurrency(OfflinePlayer player, String currency , int amount, String reason) {
         data.set("data." + player.getUniqueId() + "." + currency, getCurrency(player, currency) - amount);
-        String symbol = Currency.getInstance().getConfig().getString("Currencies." + currency + ".symbol");
+        String symbol = configManager.getConfig("config").getString("Currencies." + currency + ".symbol");
         if (player.isOnline()) {
             Player onlinePlayer = (Player) player;
-            onlinePlayer.sendMessage(ColorAPI.process(messages.getString("TAKE-CURRENCY").replace("%currency%", currency).replace("%symbol%", symbol).replace("%amount%", df.format(amount) + "").replace("%reason%", reason)));
+            configManager.getMessage("TAKE-CURRENCY").setPlaceholder("%symbol%", symbol).setPlaceholder("%currency%", currency).setPlaceholder("%reason%", reason)
+                    .setPlaceholder("%value%", df.format(amount)).send(onlinePlayer);
         }
         configManager.saveConfig("data");
     }
@@ -50,8 +52,8 @@ public class CurrencyManager {
     }
 
     public static void createCurrencyData(Player player) {
-        for (String currency : Currency.getInstance().getConfig().getConfigurationSection("Currencies").getKeys(false)) {
-            ConfigurationSection path = Currency.getInstance().getConfig().getConfigurationSection("Currencies." + currency);
+        for (String currency : configManager.getConfig("config").getConfigurationSection("Currencies").getKeys(false)) {
+            ConfigurationSection path = configManager.getConfig("config").getConfigurationSection("Currencies." + currency);
             int amountOnJoin = path.getInt("join-amount");
             data.set("data." + player.getUniqueId() + "." + currency, amountOnJoin);
             configManager.saveConfig("data");
@@ -59,10 +61,10 @@ public class CurrencyManager {
     }
 
     public String getCurrencyPrimaryColor(String currency) {
-        return ColorAPI.process(Currency.getInstance().getConfig().getString("Currencies." + currency + ".primary"));
+        return ColorAPI.process(configManager.getConfig("config").getString("Currencies." + currency + ".primary"));
     }
 
     public String getCurrencySecondaryColor(String currency) {
-        return ColorAPI.process(Currency.getInstance().getConfig().getString("Currencies." + currency + ".secondary"));
+        return ColorAPI.process(configManager.getConfig("config").getString("Currencies." + currency + ".secondary"));
     }
 }

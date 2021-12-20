@@ -1,6 +1,7 @@
 package me.aqua.currency.listeners;
 
 import de.tr7zw.nbtapi.NBTItem;
+import me.aqua.currency.Currency;
 import me.aqua.currency.currencies.CurrencyManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

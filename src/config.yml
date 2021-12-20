@@ -7,7 +7,7 @@ Items:
       - " "
       - "&sValue&p %value% %currency%"
       - "&sSigner&p %signer%"
-    enchanted: true
+    glowing: true
     SERVER-SIGNER: "Server"
 
   pouch:

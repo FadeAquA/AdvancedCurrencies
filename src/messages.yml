@@ -9,21 +9,22 @@
 messages:
   PLAYER-OFFLINE: "&4(!) &n%player%&c is not online!"
   NO-PERMISSION: "&4(!) &cYou do not have permission to execute this command!"
-  ADMIN-GIVE-CURRENCY: "&pYou added &s%amount% %currency% &pto &s%player%'s &pbalance!"
-  ADMIN-TAKE-CURRENCY: "&pYou took &s%amount% %currency% &pfrom &s%player%'s &pbalance!"
-  ADMIN-SET-CURRENCY: "&pYou have set &s%player%'s %currency% &pbalance to &s%amount%!"
-  GIVE-CURRENCY: "&a&l+ %symbol%%amount% %currency% &7(%reason%)"
-  TAKE-CURRENCY: "&c&l- %symbol%%amount% %currency% &7(%reason%)"
+  ADMIN-GIVE-CURRENCY: "&pYou added &s%value% %currency% &pto &s%player%'s &pbalance!"
+  ADMIN-TAKE-CURRENCY: "&pYou took &s%value% %currency% &pfrom &s%player%'s &pbalance!"
+  ADMIN-SET-CURRENCY: "&pYou have set &s%player%'s %currency% &pbalance to &s%value%!"
+  GIVE-CURRENCY: "<SOLID:9cff57>&l+ %symbol%%value% %currency% &7(%reason%)"
+  TAKE-CURRENCY: "<SOLID:ff3d00>&l- %symbol%%value% %currency% &7(%reason%)"
   INVALID-CURRENCY: "&4(!) &cInvalid Currency!"
   INVALID-POUCH-AMOUNT: "&4(!) &cNumbers have to be greater than 0 and max needs to be greater than min!"
   INVALID-AMOUNT: "&4(!) &cAmount must be greater than 0"
-  INSUFFICIANT-CURRENCY: "&4(!) Player does not have enough &4%currency%"
+  INSUFFICIANT-CURRENCY: "&4(!) &cPlayer does not have enough &4%currency%"
+  INSUFFICIANT-BALANCE: "&4(!) You do not have enough &4%currency%"
   ADMIN-GIVE-POUCH: "&pYou gave &s%player% %amount%x %currency% &pPouch with a value between &s%min% &pand &s%max%"
   ADMIN-GIVE-NOTE: "&pYou gave &s%player% %amount%x %currency% &pNote with a value of &s%value%"
   PLAYER-COMMAND: "&4(!) &cThis command can only be executed by players!"
   WITHDRAW-USAGE: "&4(USAGE) &c/withdraw <currency> <amount>"
   ITEM-HELP:
-    - "<GRADIENT:388e3cAdmin Item Commands</GRADIENT:6abf69>"
+    - "<GRADIENT:388e3c>Admin Item Commands</GRADIENT:6abf69>"
     - "<SOLID:6abf69>/pouch give <player> <currency> <min> <max> <amount>"
     - "<SOLID:6abf69>/note give <player> <currency> <value> <amount>"
   BANK-HELP:
@@ -41,4 +42,8 @@ messages:
     - "&f&l%player%'s Balances"
     - "%balances%"
   PLAYER-BALANCE-ELEMENT: "&7- &p%balance% &s%currency%" #Replaces the %balances% in PLAYER-BALANCE & OTHER-PLAYER-BALANCE
-
+  BALTOP-LAYOUT:
+    - "&p&m======================="
+    - "&fTop 10 players with %currency%"
+    - "%players%"
+  BALTOP-ELEMENT: "&s%player% &7- &p%balance%"
